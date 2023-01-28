@@ -8,5 +8,6 @@ namespace MVVM
 {
     internal class Model
     {
+        public static List<string> dataList = new List<string> { "Сложение", "Вычитание", "Умножение", "Деление" };
     }
 }

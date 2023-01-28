@@ -13,6 +13,38 @@ namespace MVVM
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public List<string> ComboChange // свойство для заполнения Combobox
+        {
+            get
+            {
+                return Model.dataList;
+            }
+        }
+        int cbIndex = -1;
+        public int IndexSelected // свойство для нахождения индекса выбранного в Combobox элемента
+        {
+            set
+            {
+                // индек - это необходимое значение, которое нужно получить
+                cbIndex = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("CBIndex"));  // событие, которое реагирует на изменение свойства
+            }
+        }
+        public string CBIndex // свойство для отображения фамилии в Combobox
+        {
+            get
+            {
+                if (cbIndex == -1)
+                {
+                    return "";
+                }
+                else
+                {
+                   return Model.dataList[cbIndex];
+                }
+
+            }
+        }
         public RoutedCommand Command { get; set; } = new RoutedCommand();
 
         // обработчик события для Command (увеличение значения числа на 1)
