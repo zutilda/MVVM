@@ -20,9 +20,13 @@ namespace MVVM
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel VM = new ViewModel(); // объект для работы с VievModel
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = VM;  // добавление объекта VievModel в ресурсы страницы
+            CommandBindings.Add(VM.bind);  // добавление объекта привязки на страницу
+
         }
     }
 }

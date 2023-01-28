@@ -13,6 +13,13 @@ namespace MVVM
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public List<string> ComboBoxChange // свойство для заполнения Combobox
+        {
+            get
+            {
+                return Model.OperationList;
+            }
+        }
         public List<string> ComboChange // свойство для заполнения Combobox
         {
             get
