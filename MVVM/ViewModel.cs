@@ -48,25 +48,28 @@ namespace MVVM
 
         public string Result
         {
-            get => GetResult(Model.one.Text, Model.two.Text);
+            get
+            {
+                return GetResult(Model.One.Text, Model.Two.Text);
+            }
             set
             {
             }
         }
 
-        private string GetResult(string one, string two)
+        private string GetResult(string One, string Two)
         {
             try
             {
-                double One = Convert.ToDouble(one);
-                double Two = Convert.ToDouble(two);
+                double one = Convert.ToDouble(One);
+                double two = Convert.ToDouble(Two);
 
-                if(CBIndex == 3 && Two == 0)
+                if(CBIndex == 3 && two == 0)
                 {
                     return "Ошибка деления на 0";
                 }
 
-                else return Calculation(One, Two);
+                else return Calculation(one, two);
             }
             catch
             {
@@ -95,7 +98,7 @@ namespace MVVM
                     return "Действие не выбрано";
             }
         }
-        public string Operation // свойство для отображения фамилии в Combobox
+        public string Operation 
         {
             get
             {
